@@ -1,8 +1,9 @@
 # Clean code in Unity
 ## Clean code là gì? Tại sao cần clean code?
 
-Clean code (mã sạch) là một khái niệm trong lập trình phần mềm, đề cập đến việc viết mã nguồn sao cho dễ đọc, dễ hiểu và
-dễ bảo trì. Mục tiêu của clean code là giúp các lập trình viên khác (hoặc chính bạn trong tương lai) có thể nhanh chóng
+- Clean code (mã sạch) là một khái niệm trong lập trình phần mềm, đề cập đến việc viết mã nguồn sao cho dễ đọc, dễ hiểu và
+dễ bảo trì.
+- Mục tiêu của clean code là giúp các lập trình viên khác (hoặc chính bạn trong tương lai) có thể nhanh chóng
 hiểu được ý định của mã nguồn, giảm thiểu lỗi và tăng hiệu suất làm việc.
 
 ## Clean code nên bắt đầu từ đâu?
