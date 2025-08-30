@@ -44,7 +44,7 @@
 4. 🔧 **Mỗi hàm nên thực hiện một tính năng duy nhất**
     - Một hàm nên được thiết kế để thực hiện một nhiệm vụ cụ thể và rõ ràng.
     - Nếu một hàm thực hiện quá nhiều nhiệm vụ, nó sẽ trở nên khó đọc và khó bảo trì (ví dụ một hàm thực hiện xử lý đồng thời input, update animation, tính toán vật lý).
-    - Nên chia nhỏ các hàm lớn thành các hàm nhỏ hơn, mỗi hàm đảm nhận một nhiệm vụ cụ thể.
+    - Nên chia nhỏ hàm lớn thành các hàm nhỏ hơn, mỗi hàm đảm nhận một nhiệm vụ cụ thể.
     - 👉Ví dụ:
         ```csharp
         // Bad example
@@ -109,8 +109,8 @@
     
          PlayerState playerState = PlayerState.Idle;
       ```
-7. 🗂️ **Không bỏ ngoặc trong if, else, for**
-    - Dù chỉ có một dòng lệnh trong khối if, else, for thì vẫn nên sử dụng ngoặc nhọn `{}` để bao quanh khối lệnh đó.
+7. 🗂️ **Không bỏ ngoặc trong if-else, for**
+    - Dù chỉ có một dòng lệnh trong khối if-else, for thì vẫn nên sử dụng ngoặc nhọn `{}` để bao quanh khối lệnh đó.
     - Việc này giúp tránh các lỗi không mong muốn khi bạn hoặc người khác thêm dòng lệnh mới vào khối lệnh sau này.
     - 👉Ví dụ:
       ```csharp
@@ -135,8 +135,8 @@
         - **Encapsulation (Đóng gói)**: Giữ trạng thái và hành vi của đối tượng bên trong lớp và chỉ cho phép truy cập thông qua các phương thức công khai.
         - **Inheritance (Kế thừa)**: Tạo các lớp con từ lớp cha để tái sử dụng mã nguồn và mở rộng chức năng.
         - **Abstraction (Trừu tượng)**: Tạo các lớp trừu tượng để định nghĩa giao diện chung cho các lớp con.
-        - **Polymorphism (Đa hình)**: Cho phép các đối tượng của các lớp khác nhau có thể được xử lý thông qua cùng một giao diện chung.
-    - 👉Ví dụ 1:
+        - **Polymorphism (Đa hình)**: Cho phép cùng một hành động (phương thức) nhưng có thể thực hiện theo nhiều cách khác nhau, tùy thuộc vào đối tượng cụ thể đang sử dụng...
+    - 👉Ví dụ 1: Sử dụng kế thừa để tái sử dụng mã nguồn và giảm sự lặp lại
       ```csharp
          // Bad example
          class Player 
@@ -162,7 +162,7 @@
             public void Defend() { /* ... */ }
          }
       ```
-    - 👉Ví dụ 2: Lợi ích của việc sử dụng interface để giảm sự phụ thuộc vào các lớp cụ thể
+    - 👉Ví dụ 2: Lợi ích của việc sử dụng (trừu tượng) interface để giảm sự phụ thuộc vào các lớp cụ thể
       - Bad example
       ```csharp
         public class BlueMonster : MonoBehaviour
@@ -462,66 +462,66 @@
       ```
 
 11. 🧩 **Sử dụng partial class để mở rộng**
-  - Partial class là một tính năng trong C# cho phép bạn chia một lớp thành nhiều phần trong các tệp khác nhau.
-  - Sử dụng partial class giúp mã nguồn trở nên sạch hơn và dễ bảo trì hơn, đặc biệt khi một lớp có nhiều chức năng hoặc khi bạn muốn tách riêng các phần của lớp để dễ dàng quản lý.
-  - Việc này rất hiệu quả khi có nhiều người cùng làm feature và cần tách riêng code của mình ra để tránh xung đột.
-  - 👉Ví dụ:
-    ```csharp
-       // File Character.Movement.cs
-       public partial class Character : MonoBehaviour
-       {
-           public void Move() { /* ... */ }
-       }
+    - Partial class là một tính năng trong C# cho phép bạn chia một lớp thành nhiều phần trong các tệp khác nhau.
+    - Sử dụng partial class giúp mã nguồn trở nên sạch hơn và dễ bảo trì hơn, đặc biệt khi một lớp có nhiều chức năng hoặc khi bạn muốn tách riêng các phần của lớp để dễ dàng quản lý.
+    - Việc này rất hiệu quả khi có nhiều người cùng làm feature và cần tách riêng code của mình ra để tránh xung đột.
+    - 👉Ví dụ:
+      ```csharp
+         // File Character.Movement.cs
+         public partial class Character : MonoBehaviour
+         {
+             public void Move() { /* ... */ }
+         }
 
-       // File Character.Combat.cs
-       public partial class Character : MonoBehaviour
-       {
-           public void Attack() { /* ... */ }
-           public void Defend() { /* ... */ }
-       }
+         // File Character.Combat.cs
+         public partial class Character : MonoBehaviour
+         {
+             public void Attack() { /* ... */ }
+             public void Defend() { /* ... */ }
+         }
 
-       // File Character.Inventory.cs
-       public partial class Character : MonoBehaviour
-       {
-           public void AddItem(string item) { /* ... */ }
-           public void RemoveItem(string item) { /* ... */ }
-       }
-    ```
+         // File Character.Inventory.cs
+         public partial class Character : MonoBehaviour
+         {
+             public void AddItem(string item) { /* ... */ }
+             public void RemoveItem(string item) { /* ... */ }
+         }
+      ```
 
 12. 🎯 **Hãy chọn một pattern chính xuyên suốt**
-  - Trong lập trình, có rất nhiều design pattern khác nhau như Singleton, Factory, Observer, Strategy, v.v...
-  - Mỗi pattern đều có ưu điểm và nhược điểm riêng, và không phải pattern nào cũng phù hợp với mọi tình huống.
-  - Việc chọn một pattern chính để áp dụng xuyên suốt trong project sẽ giúp mã nguồn trở nên nhất quán hơn và dễ bảo trì hơn.
-  - Ví dụ: Nếu bạn chọn sử dụng pattern Observer để quản lý sự kiện trong game, hãy cố gắng áp dụng nó cho tất cả các hệ thống liên quan đến sự kiện thay vì sử dụng nhiều pattern khác nhau.
+    - Trong lập trình, có rất nhiều design pattern khác nhau như Singleton, Factory, Observer, Strategy, v.v...
+    - Mỗi pattern đều có ưu điểm và nhược điểm riêng, và không phải pattern nào cũng phù hợp với mọi tình huống.
+    - Việc chọn một pattern chính để áp dụng xuyên suốt trong project sẽ giúp mã nguồn trở nên nhất quán hơn và dễ bảo trì hơn.
+    - Ví dụ: Nếu bạn chọn sử dụng pattern Observer để quản lý sự kiện trong game, hãy cố gắng áp dụng nó cho tất cả các hệ thống liên quan đến sự kiện thay vì sử dụng nhiều pattern khác nhau.
 13. 🎨 **Sử dụng một kiểu format code cho toàn bộ project**
-  - Việc sử dụng một kiểu format code nhất quán trong toàn bộ project sẽ giúp mã nguồn trở nên dễ đọc và dễ bảo trì hơn. Đây là một cách hiệu quả cho những người OCD giảm sự khó chịu =))
-  - Các IDE bây giờ đều hỗ trơ rất tốt việc này. Có 2 kiểu format phổ biến trong c# là K&R style và BSD style, hãy chọn cho mình một kiểu phù hợp
-  - Điều quan trọng là tất cả các thành viên trong team đều phải tuân thủ quy tắc này để đảm bảo tính nhất quán trong mã nguồn.
+    - Việc sử dụng một kiểu format code nhất quán trong toàn bộ project sẽ giúp mã nguồn trở nên dễ đọc và dễ bảo trì hơn. Đây là một cách hiệu quả cho những người OCD giảm sự khó chịu =))
+    - Các IDE bây giờ đều hỗ trơ rất tốt việc này. Có 2 kiểu format phổ biến trong c# là K&R style và BSD style, hãy chọn cho mình một kiểu phù hợp
+    - Điều quan trọng là tất cả các thành viên trong team đều phải tuân thủ quy tắc này để đảm bảo tính nhất quán trong mã nguồn.
 14. 📦 **Dùng ScriptableObject thay vì hard code data**
-  - ScriptableObject là một loại đối tượng trong Unity cho phép bạn lưu trữ dữ liệu một cách dễ dàng và hiệu quả.
-  - Sử dụng ScriptableObject để lưu trữ dữ liệu thay vì hard code trực tiếp trong script sẽ giúp mã nguồn trở nên sạch hơn và dễ bảo trì hơn.
-  - Thay vì hard code các thuộc tính của một nhân vật trong script, bạn có thể tạo một ScriptableObject để lưu trữ các thuộc tính này và dễ dàng chỉnh sửa chúng trong editor.
-  - 👉Ví dụ:
-    ```csharp
-       // Tạo ScriptableObject để lưu trữ dữ liệu nhân vật
-       [CreateAssetMenu(fileName = "NewCharacterData", menuName = "Character Data", order = 51)]
-       public class CharacterData : ScriptableObject
-       {
-           public string characterName;
-           public int health;
-           public int attackPower;
-       }
+    - ScriptableObject là một loại đối tượng trong Unity cho phép bạn lưu trữ dữ liệu một cách dễ dàng và hiệu quả.
+    - Sử dụng ScriptableObject để lưu trữ dữ liệu thay vì hard code trực tiếp trong script sẽ giúp mã nguồn trở nên sạch hơn và dễ bảo trì hơn.
+    - Thay vì hard code các thuộc tính của một nhân vật trong script, bạn có thể tạo một ScriptableObject để lưu trữ các thuộc tính này và dễ dàng chỉnh sửa chúng trong editor.
+    - 👉Ví dụ:
+      ```csharp
+         // Tạo ScriptableObject để lưu trữ dữ liệu nhân vật
+         [CreateAssetMenu(fileName = "NewCharacterData", menuName = "Character Data", order = 51)]
+         public class CharacterData : ScriptableObject
+         {
+             public string characterName;
+             public int health;
+             public int attackPower;
+         }
 
-       // Sử dụng ScriptableObject trong script
-       public class Character : MonoBehaviour
-       {
-           public CharacterData characterData;
+         // Sử dụng ScriptableObject trong script
+         public class Character : MonoBehaviour
+         {
+             public CharacterData characterData;
 
-           void Start()
-           {
-               Debug.Log("Character Name: " + characterData.characterName);
-               Debug.Log("Health: " + characterData.health);
-               Debug.Log("Attack Power: " + characterData.attackPower);
-           }
-       }
-    ```
+             void Start()
+             {
+                 Debug.Log("Character Name: " + characterData.characterName);
+                 Debug.Log("Health: " + characterData.health);
+                 Debug.Log("Attack Power: " + characterData.attackPower);
+             }
+         }
+      ```
