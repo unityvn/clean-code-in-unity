@@ -19,7 +19,7 @@
     - Sử dụng tên biến nhất quán trong suốt project
       (ví dụ: `const int DAYS_IN_WEEK = 7;` or `const int daysInWeek = 7;`) trong 2 kiểu tên biến const ở ví dụ, nếu đã
       follow theo kiểu nào sẽ làm tương tự xuyên suốt project.
-    - Lưu ý: Phần này còn tuỳ thuộc vào convention của từng team/project thì có thể sẽ khác nhau, hãy thống nhất với
+    - Lưu ý: Phần này còn tuỳ thuộc vào convention của từng team/project có thể sẽ khác nhau, hãy thống nhất với
       team của bạn. Bạn có thể tham khảo thêm [C# Coding Conventions](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names)
 2. 🔀 **If-Else và Switch-case**
    - Cân nhắc trong các trường hợp có nhiều nhánh (10-20 case) và điều kiện kiểm tra là các giá trị rời rạc của cùng một biến (enum, int, string, v.v...) thì nên sử dụng switch-case thay vì if-else.
