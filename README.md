@@ -14,12 +14,13 @@
     - Tên biến và tên hàm phải là tên có nghĩa
     - Chữ cái đầu tiên của biến sẽ là chữ thường, các chữ cái đầu tiên của các từ tiếp theo sẽ viết hoa (ví dụ:
       `string studentName = "VirtueSky";`, `int calculateTotal = 0`).
-    - Không sử dụng tên có ký tự đầu tiên là số (ví dụ: `int d = 365;`)
     - Đối với tên hàm cũng tương tự tuy nhiên chữ cái bắt đầu của tên hàm sẽ là chữ in hoa, (ví dụ: `GetDayInYear(){}`)
     - Không viết tắt trong tên biến hoặc tên hàm.
     - Sử dụng tên biến nhất quán trong suốt project
       (ví dụ: `const int DAYS_IN_WEEK = 7;` or `const int daysInWeek = 7;`) trong 2 kiểu tên biến const ở ví dụ, nếu đã
       follow theo kiểu nào sẽ làm tương tự xuyên suốt project.
+    - Lưu ý: Phần này còn tuỳ thuộc vào convention của từng team/project thì có thể sẽ khác nhau, hãy thống nhất với
+      team của bạn. Bạn có thể tham khảo thêm [C# Coding Conventions](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names)
 2. 🔀 **If-Else và Switch-case**
    - Cân nhắc trong các trường hợp có nhiều nhánh (10-20 case) và điều kiện kiểm tra là các giá trị rời rạc của cùng một biến (enum, int, string, v.v...) thì nên sử dụng switch-case thay vì if-else.
    - Việc sử dụng switch-case sẽ giúp code dễ đọc hơn, dễ bảo trì và mở rộng hơn trong tương lai.
